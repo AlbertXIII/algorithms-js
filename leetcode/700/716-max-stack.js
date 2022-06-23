@@ -1,3 +1,17 @@
+let MaxStack = function() {
+    this.s = []
+    this.maxS = []
+}
+
+MaxStack.prototype.push = function(x) {
+    this.s.push(x)
+    if (this.maxS.length < 1) this.maxS.push(x)
+    else {
+        let tmp = Math.max(this.maxS[this.maxS.length - 1], x)
+        this.maxS.push(tmp)
+    }
+}
+
 MaxStack.prototype.pop = function() {
     let res = this.s.pop()
     this.maxS.pop()
